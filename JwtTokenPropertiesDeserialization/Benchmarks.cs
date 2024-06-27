@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace JwtTokenPropertiesDeserialization;
 
+[MemoryDiagnoser]
 public class Benchmarks
 {
 	private readonly JwtTokenService _jwtTokenService = new();
@@ -93,10 +94,6 @@ public class Benchmarks
 				{
 					token.ExpiresOnUtc = DateTime.Parse(claim.Value);
 					break;
-				}
-				default:
-				{
-					return null;
 				}
 			}
 		}
